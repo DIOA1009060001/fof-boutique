@@ -1,70 +1,834 @@
+
 <!DOCTYPE html>
-<html lang="fr"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>FOF Boutique - Gagnoa Grand Commerce</title>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#080808">
+<meta name="description" content="FOF Boutique : chaussures tendance à Gagnoa, Grand Commerce. Pointures 37 à 45.">
+<title>FOF BOUTIQUE | Gagnoa Grand Commerce</title>
+
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Arial}
-body{background:#f5f5f5} header{background:#000;color:#fff;text-align:center;padding:18px} header h1{font-size:28px} header h1 span{color:#f5c518} header p{font-size:13px;opacity:.8}
-.hero{background:#000;color:#fff;text-align:center;padding:25px 15px} .hero h2{font-size:26px} .hero b{color:#f5c518}
-.btn{display:inline-block;background:#25D366;color:#fff;padding:13px 20px;border-radius:30px;text-decoration:none;font-weight:bold;margin:8px}
-.btn2{background:#f5c518;color:#000}
-h3{padding:18px 15px 5px;font-size:20px}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:12px}
-.card{background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 2px 10px rgba(0,0,0,.1)}
-.card img{width:100%;height:170px;object-fit:cover;background:#eee}
-.card div{padding:10px} .card h4{font-size:14px} .card p{font-size:12px;color:#666}
-.price{font-size:18px;font-weight:bold;margin:5px 0}
-.order{display:block;text-align:center;background:#000;color:#fff;text-decoration:none;padding:9px;border-radius:8px;margin-top:8px;font-weight:bold;font-size:13px}
-.info{background:#fff;margin:12px;padding:16px;border-radius:14px}
-footer{background:#000;color:#fff;text-align:center;padding:20px;font-size:13px}
-.float{position:fixed;bottom:18px;right:15px;background:#25D366;color:#fff;padding:14px 18px;border-radius:30px;text-decoration:none;font-weight:bold}
-</style></head><body>
-<header><h1>FOF <span>BOUTIQUE</span></h1><p>📍 Grand Commerce - Gagnoa • Ouvert 24h/24 - 7j/7</p></header>
-<div class="hero"><h2>Chaussures à <b>Gagnoa</b><br>Grand Commerce</h2><p>Pointure 37 à 45 • Qualité Belge</p>
-<a class="btn" href="https://wa.me/2250566407588?text=Bonjour%20FOF%20Boutique">💬 Commander sur WhatsApp</a>
-<a class="btn btn2" href="#produits">👟 Voir les 22 modèles</a></div>
-<h3 id="produits">👟 Nos 22 Modèles - FOF Boutique</h3>
-<div class="grid" id="grid"></div>
-<div class="info"><h3>📍 Nous Trouver</h3><p><b>FOF BOUTIQUE</b><br>Grand Commerce - Gagnoa</p><p>🕐 <b>Ouvert 24h/24 - 7j/7</b></p><p>📞 WhatsApp : +225 05 66 40 75 88</p><p>💰 Paiement à la livraison à Gagnoa</p><a class="btn" href="https://wa.me/2250566407588">📍 Je viens au magasin</a></div>
-<footer>© 2026 FOF Boutique - Gagnoa, Grand Commerce</footer>
-<a class="float" href="https://wa.me/2250566407588">💬 WhatsApp</a>
+:root {
+  --black:#080808;
+  --dark:#151515;
+  --gold:#f5c518;
+  --white:#fff;
+  --bg:#f5f5f5;
+  --muted:#777;
+  --green:#25D366;
+}
+
+* {
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial, sans-serif;
+}
+
+html { scroll-behavior:smooth; }
+
+body {
+  background:var(--bg);
+  color:var(--dark);
+}
+
+button, input, select { font:inherit; }
+
+header {
+  background:var(--black);
+  color:white;
+  text-align:center;
+  padding:22px 15px;
+}
+
+header h1 {
+  font-size:30px;
+  letter-spacing:1px;
+}
+
+header h1 span { color:var(--gold); }
+
+header p {
+  font-size:13px;
+  margin-top:7px;
+  color:#ddd;
+}
+
+.hero {
+  background:linear-gradient(135deg,#080808,#292929);
+  color:white;
+  text-align:center;
+  padding:45px 18px;
+}
+
+.hero h2 {
+  font-size:clamp(27px,6vw,42px);
+  line-height:1.2;
+}
+
+.hero h2 span { color:var(--gold); }
+
+.hero p {
+  color:#ddd;
+  margin:15px 0;
+  font-size:15px;
+}
+
+.hero-actions {
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top:20px;
+}
+
+.btn {
+  display:inline-block;
+  background:var(--green);
+  color:white;
+  padding:13px 19px;
+  border-radius:30px;
+  text-decoration:none;
+  font-weight:bold;
+  border:0;
+  cursor:pointer;
+}
+
+.btn-gold {
+  background:var(--gold);
+  color:#111;
+}
+
+.btn-dark {
+  background:#111;
+  color:white;
+}
+
+.stats {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  background:white;
+  margin:15px;
+  border-radius:13px;
+  padding:17px 5px;
+  text-align:center;
+  gap:5px;
+}
+
+.stats strong {
+  display:block;
+  font-size:19px;
+  color:#b18b00;
+}
+
+.stats span {
+  font-size:11px;
+  color:var(--muted);
+}
+
+.section-heading {
+  padding:25px 15px 12px;
+}
+
+.section-heading h2 {
+  font-size:22px;
+}
+
+.section-heading p {
+  color:var(--muted);
+  font-size:13px;
+  margin-top:5px;
+}
+
+.toolbar {
+  background:white;
+  margin:10px 12px;
+  padding:14px;
+  border-radius:13px;
+  box-shadow:0 2px 9px #00000008;
+}
+
+.search {
+  width:100%;
+  padding:13px;
+  border:1px solid #ddd;
+  border-radius:9px;
+  outline:none;
+  margin-bottom:10px;
+}
+
+.search:focus, .filter:focus {
+  border-color:#b18b00;
+}
+
+.filters {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:9px;
+}
+
+.filter {
+  width:100%;
+  padding:11px;
+  border:1px solid #ddd;
+  border-radius:8px;
+  background:white;
+  color:#333;
+}
+
+.results {
+  padding:10px 15px 0;
+  font-size:13px;
+  color:var(--muted);
+}
+
+.grid {
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:12px;
+  padding:12px;
+}
+
+.card {
+  background:white;
+  border-radius:13px;
+  overflow:hidden;
+  box-shadow:0 3px 12px #0000000c;
+  display:flex;
+  flex-direction:column;
+}
+
+.image-wrap {
+  position:relative;
+  background:#eee;
+  height:155px;
+}
+
+.card img {
+  width:100%;
+  height:155px;
+  object-fit:cover;
+  display:block;
+}
+
+.photo-fallback {
+  position:absolute;
+  inset:0;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  flex-direction:column;
+  color:#777;
+  font-size:13px;
+  text-align:center;
+  padding:10px;
+}
+
+.photo-fallback strong {
+  font-size:35px;
+  margin-bottom:5px;
+}
+
+.card-info {
+  padding:11px;
+  display:flex;
+  flex-direction:column;
+  flex:1;
+}
+
+.card h3 {
+  font-size:14px;
+  line-height:1.4;
+  min-height:39px;
+}
+
+.card .description {
+  color:var(--muted);
+  font-size:11px;
+  margin-top:4px;
+}
+
+.price {
+  color:#a27c00;
+  font-size:18px;
+  font-weight:bold;
+  margin:9px 0;
+}
+
+.size-label {
+  font-size:12px;
+  font-weight:bold;
+  margin-bottom:5px;
+}
+
+.size-select {
+  width:100%;
+  padding:10px;
+  border:1px solid #ddd;
+  border-radius:7px;
+  background:white;
+  margin-bottom:9px;
+}
+
+.add-cart {
+  width:100%;
+  background:#111;
+  color:white;
+  border:0;
+  border-radius:8px;
+  padding:11px 5px;
+  font-weight:bold;
+  cursor:pointer;
+  margin-top:auto;
+}
+
+.add-cart:active { background:#444; }
+
+.no-result {
+  display:none;
+  text-align:center;
+  padding:30px 15px;
+  color:var(--muted);
+  grid-column:1/-1;
+}
+
+.cart-section {
+  margin:15px 12px;
+  background:white;
+  border-radius:14px;
+  padding:17px;
+}
+
+.cart-title {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  margin-bottom:15px;
+}
+
+.cart-count {
+  background:var(--gold);
+  padding:5px 10px;
+  border-radius:20px;
+  font-weight:bold;
+  font-size:12px;
+}
+
+.cart-empty {
+  color:var(--muted);
+  font-size:13px;
+  padding:12px 0;
+}
+
+.cart-item {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:8px;
+  padding:12px 0;
+  border-bottom:1px solid #eee;
+  font-size:13px;
+}
+
+.cart-item-info { flex:1; }
+
+.cart-item-info small {
+  display:block;
+  color:var(--muted);
+  margin-top:4px;
+}
+
+.remove-item {
+  background:#eee;
+  border:0;
+  border-radius:6px;
+  padding:7px 9px;
+  cursor:pointer;
+}
+
+.cart-total {
+  display:flex;
+  justify-content:space-between;
+  font-size:18px;
+  font-weight:bold;
+  margin:18px 0;
+}
+
+.checkout {
+  width:100%;
+  padding:14px;
+  background:var(--green);
+  color:white;
+  border:0;
+  border-radius:9px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+.checkout:disabled {
+  opacity:.45;
+  cursor:not-allowed;
+}
+
+.info {
+  background:white;
+  margin:12px;
+  padding:20px;
+  border-radius:14px;
+  line-height:1.9;
+}
+
+.info h2 {
+  font-size:20px;
+  margin-bottom:8px;
+}
+
+.info p { font-size:14px; }
+
+.info .btn { margin-top:12px; }
+
+footer {
+  background:var(--black);
+  color:white;
+  text-align:center;
+  padding:25px 15px;
+  font-size:13px;
+  line-height:1.9;
+}
+
+footer span { color:var(--gold); }
+
+.float {
+  position:fixed;
+  bottom:18px;
+  right:15px;
+  background:var(--green);
+  color:white;
+  padding:14px 18px;
+  border-radius:30px;
+  text-decoration:none;
+  font-weight:bold;
+  box-shadow:0 3px 12px #0003;
+  z-index:20;
+}
+
+@media(min-width:700px) {
+  .grid {
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    gap:20px;
+    padding:20px;
+  }
+
+  .card img, .image-wrap { height:220px; }
+
+  .card-info { padding:16px; }
+
+  .card h3 { font-size:17px; }
+
+  .toolbar { margin:15px 20px; }
+
+  .stats { max-width:650px; margin:20px auto; }
+}
+
+@media(min-width:1000px) {
+  .grid {
+    grid-template-columns:repeat(4,minmax(0,1fr));
+    max-width:1250px;
+    margin:auto;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>FOF <span>BOUTIQUE</span></h1>
+  <p>📍 Grand Commerce - Gagnoa</p>
+  <p>🕐 Ouvert 24h/24 - 7j/7</p>
+</header>
+
+<section class="hero">
+  <h2>Bienvenue chez <span>FOF BOUTIQUE</span></h2>
+  <p>Les chaussures tendance à Gagnoa, Grand Commerce.</p>
+  <p>👟 Pointures 37 à 45 • Qualité Belge</p>
+
+  <div class="hero-actions">
+    <a class="btn" href="https://wa.me/2250566407588">💬 Nous contacter</a>
+    <a class="btn btn-gold" href="#produits">Découvrir les modèles</a>
+  </div>
+</section>
+
+<div class="stats">
+  <div><strong>22</strong><span>Modèles</span></div>
+  <div><strong>37-45</strong><span>Pointures</span></div>
+  <div><strong>12 000 F</strong><span>À partir de</span></div>
+</div>
+
+<div class="section-heading" id="produits">
+  <h2>👟 Notre collection</h2>
+  <p>Choisis ton modèle, ta couleur et ta pointure.</p>
+</div>
+
+<div class="toolbar">
+  <input
+    type="search"
+    id="search"
+    class="search"
+    placeholder="🔎 Rechercher une chaussure..."
+    aria-label="Rechercher une chaussure"
+  >
+
+  <div class="filters">
+    <select id="priceFilter" class="filter" aria-label="Filtrer par prix">
+      <option value="all">Tous les prix</option>
+      <option value="12000">12 000 F</option>
+      <option value="13000">13 000 F</option>
+      <option value="15000">15 000 F</option>
+    </select>
+
+    <select id="sortFilter" class="filter" aria-label="Trier les produits">
+      <option value="default">Ordre initial</option>
+      <option value="low">Prix croissant</option>
+      <option value="high">Prix décroissant</option>
+      <option value="name">Ordre alphabétique</option>
+    </select>
+  </div>
+</div>
+
+<div class="results" id="results"></div>
+<div class="grid" id="grid">
+  <p class="no-result" id="noResult">Aucun modèle trouvé.</p>
+</div>
+
+<section class="cart-section" id="panier">
+  <div class="cart-title">
+    <h2>🛒 Mon panier</h2>
+    <span class="cart-count" id="cartCount">0 article</span>
+  </div>
+
+  <div id="cartItems">
+    <p class="cart-empty">Ton panier est vide. Choisis une chaussure pour commencer.</p>
+  </div>
+
+  <div class="cart-total">
+    <span>Total</span>
+    <span id="cartTotal">0 F</span>
+  </div>
+
+  <button class="checkout" id="checkout" disabled>
+    Commander mon panier sur WhatsApp
+  </button>
+</section>
+
+<div class="info">
+  <h2>📍 Nous trouver</h2>
+  <p><b>FOF BOUTIQUE</b></p>
+  <p>Grand Commerce - Gagnoa</p>
+  <p>🕐 <b>Ouvert 24h/24 - 7j/7</b></p>
+  <p>📞 WhatsApp : +225 05 66 40 75 88</p>
+  <p>💰 Paiement à la livraison à Gagnoa</p>
+  <a class="btn" href="https://wa.me/2250566407588">
+    Nous contacter
+  </a>
+</div>
+
+<footer>
+  <p><span>FOF BOUTIQUE</span></p>
+  <p>Chaussures tendance • Grand Commerce - Gagnoa</p>
+  <p>WhatsApp : +225 05 66 40 75 88</p>
+  <p>© <span id="year"></span> FOF Boutique. Tous droits réservés.</p>
+</footer>
+
+<a class="float" href="https://wa.me/2250566407588">
+  💬 WhatsApp
+</a>
+
 <script>
-var produits=[
-["Puma Suede Rouge / Blanc","15 000 F","Puma Suede Rouge 15 000 F"],
-["Puma Suede Bleu / Blanc","15 000 F","Puma Suede Bleu 15 000 F"],
-["TN Full White","15 000 F","TN Full White 15 000 F"],
-["Jordan 4 Blanc / Noir","15 000 F","Jordan 4 Blanc 15 000 F"],
-["Air Max Blanc / Noir / Orange","15 000 F","Air Max 15 000 F"],
-["New Balance 530 Blanc / Argent","15 000 F","New Balance 530 15 000 F"],
-["OGY Noir / Bleu","15 000 F","OGY 15 000 F"],
-["ASICS Gel Kayano Argent / Bleu","15 000 F","ASICS Kayano 15 000 F"],
-["Puma Suede Noir / Blanc","15 000 F","Puma Noir Blanc 15 000 F"],
-["Adidas Campus Noir / Rose","13 000 F","Campus Noir Rose 13 000 F"],
-["Adidas Campus Noir / Blanc","13 000 F","Campus Noir Blanc 13 000 F"],
-["Jordan 4 Full Noir","13 000 F","Jordan Full Noir 13 000 F"],
-["Air Force 1 Full Noir","13 000 F","Air Force Noir 13 000 F"],
-["ASICS Gel Kayano Blanc / Bleu","15 000 F","ASICS Blanc Bleu 15 000 F"],
-["TN Full Noir","15 000 F","TN Full Noir 15 000 F"],
-["New Balance 9060 Full Noir","15 000 F","New Balance 9060 15 000 F"],
-["New Balance Noir / Jaune","15 000 F","New Balance Noir Jaune 15 000 F"],
-["Air Force 1 Noir Python","15 000 F","Air Force Python 15 000 F"],
-["New Balance 2002R Beige","15 000 F","New Balance 2002R Beige 15 000 F"],
-["Puma Suede Full Noir","15 000 F","Puma Full Noir 15 000 F"],
-["Nike Shox TL Full Noir","15 000 F","Nike Shox 15 000 F"],
-["Adidas Runfalcon Noir / Blanc","12 000 F","Adidas Runfalcon 12 000 F"]
+const WHATSAPP = "2250566407588";
+
+const produits = [
+  ["Puma Suede Rouge / Blanc",15000,"Puma Suede Rouge 15 000 F"],
+  ["Puma Suede Bleu / Blanc",15000,"Puma Suede Bleu 15 000 F"],
+  ["TN Full White",15000,"TN Full White 15 000 F"],
+  ["Jordan 4 Blanc / Noir",15000,"Jordan 4 Blanc 15 000 F"],
+  ["Air Max Blanc / Noir / Orange",15000,"Air Max 15 000 F"],
+  ["New Balance 530 Blanc / Argent",15000,"New Balance 530 15 000 F"],
+  ["OGY Noir / Bleu",15000,"OGY 15 000 F"],
+  ["ASICS Gel Kayano Argent / Bleu",15000,"ASICS Kayano 15 000 F"],
+  ["Puma Suede Noir / Blanc",15000,"Puma Noir Blanc 15 000 F"],
+  ["Adidas Campus Noir / Rose",13000,"Campus Noir Rose 13 000 F"],
+  ["Adidas Campus Noir / Blanc",13000,"Campus Noir Blanc 13 000 F"],
+  ["Jordan 4 Full Noir",13000,"Jordan Full Noir 13 000 F"],
+  ["Air Force 1 Full Noir",13000,"Air Force Noir 13 000 F"],
+  ["ASICS Gel Kayano Blanc / Bleu",15000,"ASICS Blanc Bleu 15 000 F"],
+  ["TN Full Noir",15000,"TN Full Noir 15 000 F"],
+  ["New Balance 9060 Full Noir",15000,"New Balance 9060 15 000 F"],
+  ["New Balance Noir / Jaune",15000,"New Balance Noir Jaune 15 000 F"],
+  ["Air Force 1 Noir Python",15000,"Air Force Python 15 000 F"],
+  ["New Balance 2002R Beige",15000,"New Balance 2002R Beige 15 000 F"],
+  ["Puma Suede Full Noir",15000,"Puma Full Noir 15 000 F"],
+  ["Nike Shox TL Full Noir",15000,"Nike Shox 15 000 F"],
+  ["Adidas Runfalcon Noir / Blanc",12000,"Adidas Runfalcon 12 000 F"]
 ];
-var grid=document.getElementById("grid");
-produits.forEach(function(p,i){
-  var n=i+1;
-  var card=document.createElement("div"); card.className="card";
-  var img=document.createElement("img");
-  // Liste de tous les noms possibles que tu as mis
-  var essais=[n+".jpg", n+".JPG", n+".jpg.JPG", n+".jpg .JPG", n+".jpg.jpg", n+".JPG.JPG", n+".jpeg", n+".png", n+".JPG .JPG"];
-  var k=0;
-  img.onerror=function(){ k++; if(k<essais.length){ img.src=essais[k]; } };
-  img.src=essais[0];
-  var d=document.createElement("div");
-  d.innerHTML="<h4>"+p[0]+"</h4><p>Pointure 37 à 45</p><div class='price'>"+p[1]+"</div><a class='order' href='https://wa.me/2250566407588?text="+encodeURIComponent("Bonjour, je veux "+p[2]+", pointure ")+"'>Commander →</a>";
-  card.appendChild(img); card.appendChild(d); grid.appendChild(card);
+
+const grid = document.getElementById("grid");
+const cart = [];
+
+document.getElementById("year").textContent =
+  new Date().getFullYear();
+
+function formatPrice(price) {
+  return price.toLocaleString("fr-FR") + " F";
+}
+
+// Création des produits
+function afficherProduits() {
+  grid.innerHTML = "";
+
+  const search = document.getElementById("search").value
+    .toLowerCase().trim();
+
+  const price = document.getElementById("priceFilter").value;
+  const sort = document.getElementById("sortFilter").value;
+
+  let liste = produits.map((p,i) => ({
+    name:p[0],
+    price:p[1],
+    message:p[2],
+    index:i
+  }));
+
+  liste = liste.filter(p => {
+    const matchesName = p.name.toLowerCase().includes(search);
+    const matchesPrice = price === "all" || p.price === Number(price);
+    return matchesName && matchesPrice;
+  });
+
+  if(sort === "low") liste.sort((a,b)=>a.price-b.price);
+  if(sort === "high") liste.sort((a,b)=>b.price-a.price);
+  if(sort === "name") liste.sort((a,b)=>a.name.localeCompare(b.name));
+
+  document.getElementById("results").textContent =
+    liste.length + " modèle(s) disponible(s)";
+
+  if(liste.length === 0) {
+    const empty = document.createElement("p");
+    empty.className = "no-result";
+    empty.style.display = "block";
+    empty.textContent = "Aucun modèle trouvé. Essaie une autre recherche.";
+    grid.appendChild(empty);
+    return;
+  }
+
+  liste.forEach(p => {
+    const card = document.createElement("article");
+    card.className = "card";
+
+    const wrap = document.createElement("div");
+    wrap.className = "image-wrap";
+
+    const img = document.createElement("img");
+    img.alt = p.name;
+    img.loading = "lazy";
+
+    const fallback = document.createElement("div");
+    fallback.className = "photo-fallback";
+    fallback.innerHTML = "<strong>👟</strong>Photo à ajouter";
+
+    // Plusieurs noms possibles pour les photos existantes
+    const n = p.index + 1;
+    const essais = [
+      n+".jpg",
+      n+".JPG",
+      n+".jpg.JPG",
+      n+".jpg .JPG",
+      n+".jpg.jpg",
+      n+".JPG.JPG",
+      n+".jpeg",
+      n+".png",
+      n+".JPG .JPG"
+    ];
+
+    let k = 0;
+    img.onerror = function() {
+      k++;
+      if(k < essais.length) {
+        img.src = essais[k];
+      } else {
+        img.style.display = "none";
+        fallback.style.display = "flex";
+      }
+    };
+
+    img.src = essais[0];
+
+    wrap.appendChild(img);
+    wrap.appendChild(fallback);
+
+    const info = document.createElement("div");
+    info.className = "card-info";
+
+    const title = document.createElement("h3");
+    title.textContent = p.name;
+
+    const description = document.createElement("p");
+    description.className = "description";
+    description.textContent = "Pointures disponibles : 37 à 45";
+
+    const priceElement = document.createElement("div");
+    priceElement.className = "price";
+    priceElement.textContent = formatPrice(p.price);
+
+    const label = document.createElement("label");
+    label.className = "size-label";
+    label.textContent = "Choisir la pointure";
+
+    const select = document.createElement("select");
+    select.className = "size-select";
+    select.setAttribute("aria-label","Choisir la pointure pour "+p.name);
+
+    const option = document.createElement("option");
+    option.value = "";
+    option.textContent = "Pointure";
+    select.appendChild(option);
+
+    for(let taille=37; taille<=45; taille++) {
+      const o = document.createElement("option");
+      o.value = taille;
+      o.textContent = taille;
+      select.appendChild(o);
+    }
+
+    const add = document.createElement("button");
+    add.className = "add-cart";
+    add.textContent = "Ajouter au panier";
+
+    add.addEventListener("click",function() {
+      if(!select.value) {
+        alert("Choisis d'abord une pointure.");
+        return;
+      }
+
+      cart.push({
+        name:p.name,
+        price:p.price,
+        size:select.value
+      });
+
+      actualiserPanier();
+      add.textContent = "✓ Ajouté";
+      setTimeout(()=>add.textContent="Ajouter au panier",1200);
+    });
+
+    info.appendChild(title);
+    info.appendChild(description);
+    info.appendChild(priceElement);
+    info.appendChild(label);
+    info.appendChild(select);
+    info.appendChild(add);
+
+    card.appendChild(wrap);
+    card.appendChild(info);
+    grid.appendChild(card);
+  });
+}
+
+// Panier
+function actualiserPanier() {
+  const container = document.getElementById("cartItems");
+  container.innerHTML = "";
+
+  let total = 0;
+
+  document.getElementById("cartCount").textContent =
+    cart.length + (cart.length > 1 ? " articles" : " article");
+
+  if(cart.length === 0) {
+    const empty = document.createElement("p");
+    empty.className = "cart-empty";
+    empty.textContent = "Ton panier est vide. Choisis une chaussure pour commencer.";
+    container.appendChild(empty);
+  }
+
+  cart.forEach((item,index) => {
+    total += item.price;
+
+    const row = document.createElement("div");
+    row.className = "cart-item";
+
+    const itemInfo = document.createElement("div");
+    itemInfo.className = "cart-item-info";
+
+    const name = document.createElement("strong");
+    name.textContent = item.name;
+
+    const details = document.createElement("small");
+    details.textContent =
+      "Pointure " + item.size + " • " + formatPrice(item.price);
+
+    itemInfo.appendChild(name);
+    itemInfo.appendChild(details);
+
+    const remove = document.createElement("button");
+    remove.className = "remove-item";
+    remove.textContent = "Retirer";
+    remove.setAttribute("aria-label","Retirer "+item.name);
+
+    remove.addEventListener("click",function() {
+      cart.splice(index,1);
+      actualiserPanier();
+    });
+
+    row.appendChild(itemInfo);
+    row.appendChild(remove);
+    container.appendChild(row);
+  });
+
+  document.getElementById("cartTotal").textContent =
+    formatPrice(total);
+
+  document.getElementById("checkout").disabled =
+    cart.length === 0;
+}
+
+// Recherche et filtres
+document.getElementById("search").addEventListener("input",afficherProduits);
+document.getElementById("priceFilter").addEventListener("change",afficherProduits);
+document.getElementById("sortFilter").addEventListener("change",afficherProduits);
+
+// Commande WhatsApp
+document.getElementById("checkout").addEventListener("click",function() {
+  if(cart.length === 0) return;
+
+  let total = 0;
+
+  let message = "Bonjour FOF Boutique ! Je souhaite commander :\n\n";
+
+  cart.forEach((item,index) => {
+    message += (index+1) + ". " + item.name +
+      "\nPointure : " + item.size +
+      "\nPrix : " + formatPrice(item.price) + "\n\n";
+
+    total += item.price;
+  });
+
+  message += "TOTAL : " + formatPrice(total);
+  message += "\n\nLieu : Gagnoa, Grand Commerce.";
+  message += "\nMerci de confirmer ma commande.";
+
+  const url = "https://wa.me/" + WHATSAPP +
+    "?text=" + encodeURIComponent(message);
+
+  window.open(url,"_blank");
 });
+
+// Premier affichage
+afficherProduits();
+actualiserPanier();
 </script>
-</body></html>
+
+</body>
+</html>
